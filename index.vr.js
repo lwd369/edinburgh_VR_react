@@ -18,7 +18,9 @@ export default class edinburgh_vr extends React.Component {
         <Tag {...Location.airport}></Tag>
         <Tag {...Location.family}></Tag>
         <Tag {...Location.shopping}></Tag>
-
+        <Tag {...Location.castle}></Tag>
+        <Tag {...Location.green}></Tag>
+        <Tag {...Location.magic}></Tag>
       </View>
     );
   }

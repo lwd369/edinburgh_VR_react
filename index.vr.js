@@ -4,28 +4,21 @@ import {
   asset,
   Pano,
   Text,
-  View,
+  View
 } from 'react-vr';
+import Tag from './components/Tag';
+import Location from './location';
 
 export default class edinburgh_vr extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <Text
-          style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            fontWeight: '400',
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -3]}],
-          }}>
-          hello
-        </Text>
+        <Pano source={asset('vrimage.jpeg')} />
+        <Tag {...Location.culture}></Tag>
+        <Tag {...Location.airport}></Tag>
+        <Tag {...Location.family}></Tag>
+        <Tag {...Location.shopping}></Tag>
+
       </View>
     );
   }

@@ -1,25 +1,26 @@
 <html>
   <head>
     <title>爱在爱丁堡</title>
+    <meta charset="utf-8">
     <style>body { margin: 0; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   </head>
   <body>
     <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
-    <script src="./client.bundle?platform=vr"></script>
+    <script src="./build/client.bundle.js"></script>
     <script>
       window.lwd = '123';
       // Initialize the React VR application
       ReactVR.init(
         // When you're ready to deploy your app, update this line to point to
         // your compiled index.bundle.js
-        '../index.vr.bundle?platform=vr&dev=true',
+        './build/index.bundle.js',
         // Attach it to the body tag
         document.body
       );
     </script>
-    <audio src="../static_assets/bgm.mp3" autoplay="true" id="bgm-audio"></audio>
+    <audio src="./static_assets/bgm.mp3" autoplay="true" id="bgm-audio"></audio>
   </body>
 </html>
 

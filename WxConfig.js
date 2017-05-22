@@ -17,16 +17,16 @@ export default class WxConfig {
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);
-          console.log(data.signature);
           resolve(data.signature);
         });
     });
   }
 
   static configWeChat() {
+    const wx = window.wx;
     WxConfig.getSignature().then(signature => {
-      window.wx.config({
-        debug: true,
+      wx.config({
+        debug: false,
         appId: 'wxb93373b6d87d985d',
         timestamp: '1414587457',
         nonceStr: '20160229',
@@ -35,33 +35,18 @@ export default class WxConfig {
       })
     });
 
-    window.wx.ready(() => {
-      console.log('ready');
-    });
+    wx.ready(() => {
+      console.log('wx ready');
+      document.getElementById('bgm-audio').play();
 
-    window.wx.error(function (res) {
-      console.log('error');
-    });
-  }
-
-  config() {
-    wx.config({
-      debug: false,
-      appId: 'wxb93373b6d87d985d',
-      timestamp: '1414587457',
-      nonceStr: '20160229',
-      signature: response.data.signature,
-      jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
-    })
-    wx.ready(function () {
       wx.onMenuShareTimeline({
-        title: 'Salvatore Ferragamo 全年开业喊你来领小样啦',
+        title: '爱在爱丁堡VR体验',
         link: location.href,
         imgUrl: '',
         success: function () { }
       })
       wx.onMenuShareAppMessage({
-        title: 'Salvatore Ferragamo 全年开业喊你来领小样啦',
+        title: '爱在爱丁堡VR体验',
         desc: '',
         link: location.href,
         imgUrl: '',
@@ -69,7 +54,5 @@ export default class WxConfig {
         dataUrl: '',
         success: function () { }
       })
-    })
+    });
   }
-
-}

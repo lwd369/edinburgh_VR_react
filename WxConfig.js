@@ -44,7 +44,7 @@ export default class WxConfig {
         link: location.href,
         imgUrl: '',
         success: function () { }
-      })
+      });
       wx.onMenuShareAppMessage({
         title: '爱在爱丁堡VR体验',
         desc: '',
@@ -53,6 +53,7 @@ export default class WxConfig {
         type: '',
         dataUrl: '',
         success: function () { }
-      })
+      });
     });
   }
+}

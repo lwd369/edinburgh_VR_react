@@ -4,23 +4,29 @@ import {
   asset,
   Pano,
   Text,
-  View
+  View,
+  Sound
 } from 'react-vr';
 import Tag from './components/Tag';
 import Location from './location';
+import WxConfig from './WxConfig';
 
 export default class edinburgh_vr extends React.Component {
   render() {
     return (
       <View>
         <Pano source={asset('vrimage.jpeg')} />
-        <Tag {...Location.culture}></Tag>
         <Tag {...Location.airport}></Tag>
-        <Tag {...Location.family}></Tag>
+        <Tag {...Location.hotel}></Tag>
+        <Tag {...Location.royal}></Tag>
+        <Tag {...Location.scotland}></Tag>
         <Tag {...Location.shopping}></Tag>
+        <Tag {...Location.culture}></Tag>
         <Tag {...Location.castle}></Tag>
+        <Tag {...Location.family}></Tag>
         <Tag {...Location.green}></Tag>
-        <Tag {...Location.magic}></Tag>
+        <Tag {...Location.harry}></Tag>
+        <Tag {...Location.university}></Tag>
       </View>
     );
   }

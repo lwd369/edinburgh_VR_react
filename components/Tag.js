@@ -40,10 +40,18 @@ export default class Tag extends React.Component {
         billboarding='on'
         style={{
           flexDirection: 'row',
+          alignItems: 'center',
           transform: this.props.translate,
           width: this.props.width,
           height: this.props.height,
         }}>
+      
+        <Text
+          style={{
+            color: 'red',
+            fontSize: 0.2,
+            marginRight:0.2,
+          }}>{this.props.id}</Text>
         <VrButton
           style={{ flex: 1}}
           onClick={() => Linking.openURL('http://wap.yeahstation.com/edinburgh/')}>

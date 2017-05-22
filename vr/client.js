@@ -5,10 +5,12 @@
 // Auto-generated content.
 import {VRInstance} from 'react-vr-web';
 import {loadFont} from 'ovrui';
+import WxConfig from '../WxConfig';
 
 function init(bundle, parent, options) {
     const vr = new VRInstance(bundle, 'edinburgh_vr', parent, {
       // Add custom options here
+      // enableHotReload: true,
       cusorVisibility: 'visible',
       ...options,
     });
@@ -21,3 +23,4 @@ function init(bundle, parent, options) {
 }
 
 window.ReactVR = {init};
+WxConfig.configWeChat();

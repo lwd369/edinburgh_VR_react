@@ -1,13 +1,15 @@
 <html>
   <head>
-    <title>edinburgh_vr</title>
+    <title>爱在爱丁堡</title>
     <style>body { margin: 0; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   </head>
   <body>
     <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
     <script src="./client.bundle?platform=vr"></script>
     <script>
+      window.lwd = '123';
       // Initialize the React VR application
       ReactVR.init(
         // When you're ready to deploy your app, update this line to point to
@@ -17,6 +19,7 @@
         document.body
       );
     </script>
+    <audio src="../static_assets/bgm.mp3" autoplay="true"></audio>
   </body>
 </html>
 

@@ -1,25 +1,62 @@
 <html>
-  <head>
-    <title>爱在爱丁堡</title>
-    <style>body { margin: 0; }</style>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-  </head>
-  <body>
-    <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
-    <script src="./client.bundle?platform=vr"></script>
-    <script>
-      window.lwd = '123';
-      // Initialize the React VR application
-      ReactVR.init(
-        // When you're ready to deploy your app, update this line to point to
-        // your compiled index.bundle.js
-        '../index.vr.bundle?platform=vr&dev=true',
-        // Attach it to the body tag
-        document.body
-      );
-    </script>
-    <audio src="../static_assets/bgm.mp3" autoplay="true" id="bgm-audio"></audio>
-  </body>
-</html>
 
+<head>
+  <title>爱在爱丁堡</title>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <div id="loading">
+    <div id="loading-up">
+      <img src="../static_assets/logo.png" alt="edinburgh_logo" id="logo">
+    </div>
+    <div id="loading-down">
+      <p>开启你的爱丁堡之旅</p>
+      <p id="progress">0%</p>
+    </div>
+  </div>
+  <script src="./client.bundle?platform=vr"></script>
+  <script>
+    // Initialize the React VR application
+    ReactVR.init(
+      // When you're ready to deploy your app, update this line to point to
+      // your compiled index.bundle.js
+      '../index.vr.bundle?platform=vr&dev=true',
+      // Attach it to the body tag
+      document.body
+    );
+    // loading 
+    var loadingUp = document.getElementById('loading-up');
+    var loadingDown = document.getElementById('loading-down');
+    var loadingView = document.getElementById('loading');
+    var progressBar = document.getElementById('progress');
+    var progress = 0;
+    function addProgress() {
+      progress += 2;
+      progress = Math.min(100, progress);
+      console.log(progress);
+      if (progress >= 100) {
+        progressBar.innerText = "100%";
+        loadingUp.classList.add('animated-up');
+        loadingDown.classList.add('animated-down');
+        clearInterval(progressInterval);
+      } else {
+        progressBar.innerText = progress+'%';
+      }
+    }
+    var progressInterval = setInterval(addProgress, 100);
+    loadingUp.addEventListener('animationend', function () {
+      loadingView.classList.add('hide');
+    })
+  </script>
+  <audio src="../static_assets/bgm.mp3" autoplay="true" id="bgm-audio"></audio>
+</body>
+
+</html>

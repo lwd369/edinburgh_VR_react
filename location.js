@@ -23,7 +23,7 @@ const Location = {
   family:{
     width: 1.76 + 0.3,
     height: 0.5,
-    translate: [{ translate: [-4, 8.2, -8] }],
+    translate: [{ translate: [-4, 8.6, -8] }],
     image: 'tags/family.png',
     id: 4
   },

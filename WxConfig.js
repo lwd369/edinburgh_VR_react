@@ -36,7 +36,6 @@ export default class WxConfig {
     });
 
     wx.ready(() => {
-      console.log('wx ready');
       document.getElementById('bgm-audio').play();
 
       wx.onMenuShareTimeline({

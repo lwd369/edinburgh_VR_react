@@ -15,7 +15,12 @@ export default class edinburgh_vr extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('vrimage.jpeg')} />
+        <Pano
+          source={asset('vrimage.jpeg')}
+          style={{
+            top: 200
+          }}
+        />
         <Tag {...Location.airport}></Tag>
         <Tag {...Location.hotel}></Tag>
         <Tag {...Location.royal}></Tag>

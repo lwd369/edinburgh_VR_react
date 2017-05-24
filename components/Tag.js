@@ -37,7 +37,7 @@ export default class Tag extends React.Component {
   render() {
     return (
       <View
-        billboarding='on'
+        billboarding='off'
         style={{
           flexDirection: 'row',
           alignItems: 'center',
@@ -46,13 +46,14 @@ export default class Tag extends React.Component {
           height: this.props.height,
         }}>
       
-        <Text
+        {/*<Text
           style={{
             color: 'red',
             fontSize: 0.2,
             marginRight:0.2,
-          }}>{this.props.id}</Text>
+          }}>{this.props.id}</Text>*/}
         <VrButton
+          billboarding='on'
           style={{ flex: 1}}
           onClick={() => Linking.openURL('http://wap.yeahstation.com/edinburgh/')}>
           <Animated.Image

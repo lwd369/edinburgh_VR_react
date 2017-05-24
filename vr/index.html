@@ -22,41 +22,33 @@
       <p id="progress">0%</p>
     </div>
   </div>
+  <img src="../static_assets/music.svg" alt="mutebutton" id="audio" class="audio-on">
   <script src="./client.bundle?platform=vr"></script>
   <script>
     // Initialize the React VR application
     ReactVR.init(
-      // When you're ready to deploy your app, update this line to point to
-      // your compiled index.bundle.js
       '../index.vr.bundle?platform=vr&dev=true',
-      // Attach it to the body tag
       document.body
     );
-    // loading 
-    var loadingUp = document.getElementById('loading-up');
-    var loadingDown = document.getElementById('loading-down');
-    var loadingView = document.getElementById('loading');
-    var progressBar = document.getElementById('progress');
-    var progress = 0;
-    function addProgress() {
-      progress += 2;
-      progress = Math.min(100, progress);
-      console.log(progress);
-      if (progress >= 100) {
-        progressBar.innerText = "100%";
-        loadingUp.classList.add('animated-up');
-        loadingDown.classList.add('animated-down');
-        clearInterval(progressInterval);
-      } else {
-        progressBar.innerText = progress+'%';
-      }
-    }
-    var progressInterval = setInterval(addProgress, 100);
-    loadingUp.addEventListener('animationend', function () {
-      loadingView.classList.add('hide');
-    })
   </script>
-  <audio src="../static_assets/bgm.mp3" autoplay="true" id="bgm-audio"></audio>
+  <script src="./main.js"></script>
+  <audio src="../static_assets/bgm.mp3" autoplay="true" loop="true" id="bgm-audio"></audio>
+  <script>
+    var isPlaying = true;
+    var audioIcon = document.getElementById('audio');
+    var audioElement = document.getElementById('bgm-audio');
+    audioIcon.onclick = function () {
+      console.log(audioElement);
+      if (isPlaying) {
+        audioElement.pause();
+        audioIcon.classList.remove('audio-on');
+      } else {
+        audioElement.play();
+        audioIcon.classList.add('audio-on');
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 
 </html>

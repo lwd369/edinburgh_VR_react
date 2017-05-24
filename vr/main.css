@@ -38,6 +38,19 @@
   margin-top: 10px;
 }
 
+#audio {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 35px;
+  height: 35px;
+  z-index: 50;
+}
+
+.audio-on {
+  animation: 4s audio-playing infinite linear;
+}
+
 .hide {
   display: none;
 }
@@ -69,5 +82,14 @@
   100% {
     transform: translateY(100%);
     opacity: 0;
+  }
+}
+
+@keyframes audio-playing {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }

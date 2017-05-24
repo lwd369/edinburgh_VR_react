@@ -13,7 +13,7 @@ export default class WxConfig {
         .query({
           noncestr: '20160229',
           timestamp: '1414587457',
-          url: 'http://wap.yeahstation.com/loveinedinburgh/'
+          url: location.href
         })
         .end((err, res) => {
           const data = JSON.parse(res.text);
@@ -39,14 +39,14 @@ export default class WxConfig {
       document.getElementById('bgm-audio').play();
 
       wx.onMenuShareTimeline({
-        title: '爱在爱丁堡VR体验',
+        title: '「爱丁堡双飞往返机票」，送给最懂爱的你',
         link: location.href,
         imgUrl: '',
         success: function () { }
       });
       wx.onMenuShareAppMessage({
-        title: '爱在爱丁堡VR体验',
-        desc: '',
+        title: '「爱丁堡双飞往返机票」，送给最懂爱的你',
+        desc: '我们以爱的名义，诚邀大家上传你最有爱的故事，并配上你最爱的旅途风景，分享给我们。最受大家喜爱的故事发送者，将赢得我们提供的爱丁堡双飞往返机票。',
         link: location.href,
         imgUrl: '',
         type: '',

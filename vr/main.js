@@ -23,7 +23,7 @@ function assetDownloadCompleted() {
   setTimeout(function () {
     loadingUp.classList.add('animated-up');
     loadingDown.classList.add('animated-down');
-  }, 2000);
+  }, 1000);
 }
 
 function checkImageCache() {

@@ -72,7 +72,7 @@ const Location = {
   culture: {
     width: 2.14,
     height: 0.5,
-    translate: [{ translate: [0, 4.3 - 1.7, -8] }],
+    translate: [{ translate: [0, 4.3 - 1.6, -8] }],
     image: 'tags/culture.png',
     id: 11
   }

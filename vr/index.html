@@ -50,21 +50,23 @@
       isPlaying = !isPlaying;
     }
 
-    // if (isWechat) {
-    //   return;
-    // } else if (isiOS) {
-    //   isPlaying = false;
-    //   audioIcon.classList.remove('audio-on');
-    // } else if (isAndroid) {
-    //   audioElement.onload = function () {
-    //     audioElement.load();
-    //     audioElement.play();
-    //   }
-    // }
-
-    // var isWechat = /micromessenger/.test(navigator.userAgent.toLowerCase());
-    // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
-    // var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    var u = navigator.userAgent;
+    var isWechat = /micromessenger/.test(u.toLowerCase());
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if (isWechat) {
+      console.log('is wechat');
+    } else if (isiOS) {
+      console.log("is iOS");
+      isPlaying = false;
+      audioIcon.classList.remove('audio-on');
+    } else if (isAndroid) {
+      console.log('is Andriod')
+      audioElement.onload = function () {
+        audioElement.load();
+        audioElement.play();
+      }
+    }
   </script>
 </body>
 

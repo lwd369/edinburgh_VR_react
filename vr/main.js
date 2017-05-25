@@ -10,7 +10,14 @@ function addProgress() {
   progress += 2;
   progress = Math.min(98, progress);
   console.log(progress);
+  // if (progress >= 100) {
+  //   progressBar.innerText = "100%";
+  //   loadingUp.classList.add('animated-up');
+  //   loadingDown.classList.add('animated-down');
+  //   clearInterval(progressInterval);
+  // } else {
   progressBar.innerText = progress + '%';
+  // }
 }
 var progressInterval = setInterval(addProgress, 100);
 loadingUp.addEventListener('animationend', function () {
@@ -23,11 +30,11 @@ function assetDownloadCompleted() {
   setTimeout(function () {
     loadingUp.classList.add('animated-up');
     loadingDown.classList.add('animated-down');
-  }, 1000);
+  }, 2000);
 }
 
 function checkImageCache() {
-  var imageUrl = '../static_assets/vrimage.jpeg';
+  var imageUrl = './static_assets/vrimage.jpeg';
   var vrImage = new Image();
   vrImage.src = imageUrl;
   if (vrImage.complete) {

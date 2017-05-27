@@ -55,7 +55,7 @@ export default class Tag extends React.Component {
         <VrButton
           billboarding='on'
           style={{ flex: 1}}
-          onClick={() => Linking.openURL('http://wap.yeahstation.com/edinburgh/')}>
+          onClick={() => Linking.openURL(`http://wap.yeahstation.com/edinburgh/?aid=${this.props.id}`)}>
           <Animated.Image
             style={{ flex: 1, transform:[{scale:this.state.hoverScale}]}}
             source={asset(this.props.image)}

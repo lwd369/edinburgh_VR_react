@@ -2,7 +2,7 @@ const Location = {
   airport: {
     width: 1.76,
     height: 0.5,
-    translate: [{ translate: [3, 2 - 1.8, -8] }],
+    translate: [{ translate: [3, 2 - 1.3, -8] }],
     image: 'tags/airport.png',
     id: 1
   },
@@ -37,7 +37,7 @@ const Location = {
   scotland: {
     width: 3,
     height: 0.5,
-    translate: [{ translate: [6.5, 4 - 1.8, -3] }],
+    translate: [{ translate: [6.5, 4 - 1.4, -3] }],
     image: 'tags/scotland.png',
     id: 6
   },

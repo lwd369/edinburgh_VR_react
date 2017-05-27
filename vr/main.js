@@ -3,8 +3,8 @@ var loadingUp = document.getElementById('loading-up');
 var loadingDown = document.getElementById('loading-down');
 var loadingView = document.getElementById('loading');
 var progressBar = document.getElementById('progress');
-checkImageCache();
-
+checkImageCache(); 
+checkLoadingImageDownloaded();
 var progress = 0;
 function addProgress() {
   progress += 2;
@@ -20,21 +20,27 @@ function addProgress() {
   // }
 }
 var progressInterval = setInterval(addProgress, 100);
-loadingUp.addEventListener('animationend', function () {
-  loadingView.classList.add('hide');
+loadingView.addEventListener('animationend', function (e) {
+  if (e.animationName == "loading-dismiss") {
+    loadingView.classList.add('hide');
+  }
+  if (e.animationName == "showLoading") {
+    return;
+  }
 })
 
 function assetDownloadCompleted() {
   progressBar.innerText = "100%";
   clearInterval(progressInterval);
   setTimeout(function () {
-    loadingUp.classList.add('animated-up');
-    loadingDown.classList.add('animated-down');
+    // loadingUp.classList.add('animated-up');
+    // loadingDown.classList.add('animated-down');
+    loadingView.classList.add('dismiss');
   }, 2000);
 }
 
 function checkImageCache() {
-  var imageUrl = './static_assets/vrimage.jpeg';
+  var imageUrl = '../static_assets/vrimage.jpeg';
   var vrImage = new Image();
   vrImage.src = imageUrl;
   if (vrImage.complete) {
@@ -45,5 +51,15 @@ function checkImageCache() {
       console.log('vr image download completed');
       assetDownloadCompleted();
     }
+  }
+}
+
+var loadingBg = document.getElementById('loading-bg');
+function checkLoadingImageDownloaded() {
+  var imageUrl = '../static_assets/loading.jpeg';
+  var image = new Image();
+  image.src = imageUrl;
+  image.onload = function() {
+    loadingBg.classList.add('show');
   }
 }
